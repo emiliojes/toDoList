@@ -52,7 +52,30 @@
             if(input.value === ''){
                 alert('The value is empty')
             }
+            else {
+                const value = input.value
+                /* Creating li element each time we submit */
+                const newList = document.createElement("li")
+                /* Adding the value of the input ti the li*/
+                newList.textContent = value
+                /*Adding the delete button*/
+                const deleteButton = document.createElement("button")
+                /*Changing the content of the button*/
+                deleteButton.textContent = "Delete"
+                /*Adding the li inside the ul*/
+                list.append(newList)
+                /*Adding the delete button*/
+                newList.append(' ', deleteButton)
+            }
         }
+
+
+        //For deleting:
+        list.addEventListener('click', function(e) {
+            if(e.target.nodeName === 'BUTTON') {
+                e.target.closest('LI').remove()
+            }
+        })
     </script>
 </body>
 </html>
